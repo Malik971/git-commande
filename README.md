@@ -15,7 +15,7 @@ Permet d'ajouter tout les fichers modifiers
 Permet d'enregister une modification
 Le message est important
 
-## git puch
+## git push
 Permet de pousser les modification en ligne
 
 ## git status
