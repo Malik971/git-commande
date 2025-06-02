@@ -5,8 +5,11 @@ Liste des commandes git
 ## git init
 Permet d'initialiser un répertoire
 
-## git add
+## git add nomFicher
 Permet d'ajouter un ficher ou des modifications
+
+## git add .
+Permet d'ajouter tout les fichers modifiers
 
 ## git commit
 Permet d'enregister une modification
@@ -20,3 +23,4 @@ Permet de vérifier le status du répertoire
 Permet de lister les modification à traiter
 
 ## git log --oneline
+Permet de lister les modifications en local
