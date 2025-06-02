@@ -22,6 +22,9 @@ Permet d'ajouter et d'enregister une modification
 ## git push
 Permet de pousser les modification en ligne
 
+## git push origin :ancien_nom
+pour supprimer l'ancien nom à distance 
+
 ## git status
 Permet de vérifier le status du répertoire
 Permet de lister les modification à traiter
