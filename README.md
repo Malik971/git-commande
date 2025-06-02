@@ -24,3 +24,11 @@ Permet de lister les modification à traiter
 
 ## git log --oneline
 Permet de lister les modifications en local
+
+## git branch feature/new-branch
+Bonne convention
+
+# Dane bash
+
+## git checkout -b new-branch
+Cela crée une nouvelle branche
