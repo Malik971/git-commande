@@ -67,3 +67,9 @@ permet de faire disparaitre les commits en trop
 
 ## git reset
 - Permet de supprimer un commit
+
+## git diff idbranch1 idbranch2
+- Permet de conparer deux commit
+
+## git clone
+- Permet de récupérer un projet github en ligne
