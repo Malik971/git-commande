@@ -48,3 +48,5 @@ Quand on veux changer le nom de notre branche
 ### git branch -m ancienNom newNom
 Changer le nom d'une brache depuis un autre répertoire
 
+## git pull
+permet de récuperer mes modification et celles a distances
