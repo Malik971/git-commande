@@ -58,3 +58,12 @@ permet de récuperer mes modification et celles a distances
 
 ## git merge branche
 Permet de fusioné deux branche ensemble si on est sur la branche1 avec merge l'autre branche2 sera envoyé au dernier commit de cette branche.
+
+## git log origin/main --oneline
+Pour voir toutes les branches
+
+## git push --force
+permet de faire disparaitre les commits en trop
+
+## git reset
+- Permet de supprimer un commit
