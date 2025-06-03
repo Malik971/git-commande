@@ -50,3 +50,8 @@ Changer le nom d'une brache depuis un autre répertoire
 
 ## git pull
 permet de récuperer mes modification et celles a distances
+
+# git rebase
+- Permet de revupérer les modifications de la branche mère
+- Les modifications de la branche mère sont placées en dessous des modifications de la branche courante
+- Les modifications de la branche courante sont placées au dessus des modications de la branche mère
