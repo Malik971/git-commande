@@ -13,32 +13,51 @@
   </head>
   <body>
     <div class="container">
-      <div class=".bg-warning">
-        <h1>Calculatrices</h1>
-        <form>
+      <div class="bg-warning w-50 m-auto p-4 rounded-4">
+        <h1>Les opérateurs</h1>
+        <form onsubmit="calculer(event)">
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label"
-              >Premier nombre</label
-            >
-            <input type="email" class="form-control" id="exampleInputEmail1" />
+            <label for="name" class="form-label">Nom complet</label>
+            <input
+              type="text"
+              class="form-control rounded-pill"
+              id="name"
+              placeholder="Entrez votre nom complet"
+              required
+              pattern="[A-Za-z\s]+"
+            />
           </div>
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label"
-              >second nombre</label
-            >
-            <input type="email" class="form-control" id="exampleInputEmail1" />
+            <label for="firstNumber" class="form-label">Premier nombre</label>
+            <input
+              type="number"
+              class="form-control rounded-pill"
+              id="firstNumber"
+            />
           </div>
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Opération</label>
-            <select class="form-select" aria-label="Default select example">
+            <label for="secondNumber" class="form-label">second nombre</label>
+            <input
+              type="number"
+              class="form-control rounded-pill"
+              id="secondNumber"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="operation" class="form-label">Opération</label>
+            <select
+              class="form-select rounded-pill"
+              aria-label="Default select example"
+              id="operation"
+            >
               <option selected>selectionner</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option value="1">Addition</option>
+              <option value="2">Multiplication</option>
+              <option value="3">Modulo</option>
             </select>
           </div>
           <div class="d-grid gap-2">
-            <button type="button" id="calculer" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary rounded-pill">
               Button
             </button>
           </div>
