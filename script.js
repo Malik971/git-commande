@@ -14,21 +14,25 @@ function calculer(event) {
 });
   
   let result = 0;
+  let calcul = ""
   if (operation == 1) {
     result = firstNumber + secondNumber;
+    calcul = "l'addition";
   } else if (operation == 2) {
     result = firstNumber * secondNumber;
+    calcul = " la multiplication";
   } else if (operation == 3) {
     result = firstNumber % secondNumber;
+    calcul = " le modulo";
   } else {
     alert("Opération non reconnue");
     return;
   }
 
   // concatenation
-  const nameAndResult = name + " à selectionner la "+ operation + "ème pour obtenir: " + result;
+  const nameAndResult = name + " à calculer " + calcul +" de "+ firstNumber + " et de " + secondNumber + " pour obtenir: " + result;
   
-
+  // Affiche le résultat dans la page
   document.getElementById("result").innerText = "Résultat: " + nameAndResult;
   
 }
