@@ -12,19 +12,48 @@
     <title>Users</title>
   </head>
   <body onload="fetchUsers()">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-      <tbody id="userTableBody">
-        <!-- User rows will be populated here -->
-      </tbody>
-    </table>
+    <div class="container-lg">
+      <h2 class="d-flex justify-content-between">
+        <span>Liste des utilisateurs</span>
+        <span class="btn-group" role="group">
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            onclick="displayTable()"
+          >
+            Tableau
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            onclick="displayGrid()"
+          >
+            Grille
+          </button>
+        </span>
+      </h2>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Tableau</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+      </ul>
+      <table class="table table-bordered" id="userTable">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Téléphone</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody id="userTableBody">
+          <!-- User rows will be populated here -->
+        </tbody>
+      </table>
+      <section id="usersGrid" style="--bs-columns: 4; --bs-gap: 5rem"></section>
+    </div>
 
     <script type="text/javascript" src="scripts/users.js"></script>
   </body>
