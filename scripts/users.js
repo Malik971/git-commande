@@ -1,88 +1,93 @@
 let users = [];
-function handleResponse(response) {
-  return response.json();
-}
+    let displayMode = "grid";
 
-const handleData = (data) => {
-  users = data;
-  displayTable(data);
+    function fetchUsers() {
+      fetch("https://jsonplaceholder.typicode.com/users")
+        .then((response) => response.json())
+        .then((data) => {
+          users = data;
+          displayGrid();
+        });
+    }
 
-}
+    function displayGrid(data = users) {
+      const grid = document.getElementById("usersGrid");
+      const table = document.getElementById("userTable");
 
-const displayTable = () => {
-  let tableLines = "";
-  for (let i = 0; i < users.length; i++) {
-    const user = users[i];
-    const tableLine = `
-    <tr>
-      <td>${user.name}</td>
-      <td>${user.phone}</td>
-      <td>${user.email}</td>
-    </tr>`;
-    tableLines += tableLine;
-  }
+      table.classList.add("d-none");
+      grid.classList.remove("d-none");
+      grid.classList.add("row", "g-4", "row-cols-2");
 
-  const userCopie = users.map((user) => {
-    return `
-    <tr>
-      <td>${user.name}</td>
-      <td>${user.phone}</td>
-      <td>${user.email}</td>
-    </tr>`;
-  }
-  );
+      let cells = "";
+      data.forEach((user) => {
+        cells += `
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">${user.name}</h5>
+              <p class="card-text">Téléphone: ${user.phone}</p>
+              <p class="card-text">Email: ${user.email}</p>
+            </div>
+          </div>
+        </div>`;
+      });
 
-  const usersGrid = document.getElementById("usersGrid");
-  usersGrid.classList.remove("grid");
-  usersGrid.classList.add("d-none");
+      grid.innerHTML = cells;
+    }
 
-  const table = document.getElementById("userTable");
-  table.classList.remove("d-none");
-  table.classList.add("table");
-  document.getElementById("userTableBody").innerHTML = userCopie.join("");
+    function displayTable(data = users) {
+      const table = document.getElementById("userTable");
+      const grid = document.getElementById("usersGrid");
 
-}
+      grid.classList.add("d-none");
+      table.classList.remove("d-none");
+      table.classList.add("table");
 
-const displayGrid = () => {
-  let cells = "";
-  users.forEach((user) => {
-    const cell = `
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">${user.name}</h5>
-          <p class="card-text">Téléphone: ${user.phone}</p>
-          <p class="card-text">Email: ${user.email}</p>
-        </div>
-      </div>
+      const rows = data.map((user) => {
+        return `
+        <tr>
+          <td>${user.name}</td>
+          <td>${user.phone}</td>
+          <td>${user.email}</td>
+        </tr>`;
+      });
 
-    </div>`;
-    cells += cell;
-  }
-  );
-  const usersTable = document.getElementById("userTable");
-  usersTable.classList.remove("d-block");
-  usersTable.classList.add("d-none");
+      document.getElementById("userTableBody").innerHTML = rows.join("");
+    }
 
-  const usersGrid = document.getElementById("usersGrid");
-  usersGrid.classList.remove("d-none");
-  usersGrid.classList.add("row");
-  usersGrid.classList.add("g-4");
-  usersGrid.classList.add("row-cols-2");
-  usersGrid.innerHTML = cells;
-}
+    function searchUsers() {
+      const search = document.getElementById("search").value.toLowerCase();
+      const filteredUsers = users.filter((user) => {
+        const name = user.name.toLowerCase();
+        const phone = user.phone.toLowerCase();
+        const email = user.email.toLowerCase();
+        return name.includes(search) || phone.includes(search) || email.includes(search);
+      });
 
-function fetchUsers() {
-  fetch("https://jsonplaceholder.typicode.com/users")
-    .then((response) => handleResponse(response))
-    .then((data) => handleData(data))
-      
-    /*
-    .then(function(response) {
-      const data = response;
-      console.log(data);
-      return data;
+      if (displayMode === "grid") {
+        displayGrid(filteredUsers);
+      } else {
+        displayTable(filteredUsers);
+      }
+    }
 
-    })*/
-  
-}
+    function toggleDisplayMode() {
+      displayMode = (displayMode === "grid") ? "table" : "grid";
+
+      const btn = document.getElementById("toggleViewBtn");
+      btn.textContent = (displayMode === "grid") ? "Passer en tableau" : "Passer en grille";
+
+      const search = document.getElementById("search").value;
+      if (search.trim() !== "") {
+        searchUsers(); // garde le filtre
+      } else {
+        if (displayMode === "grid") {
+          displayGrid();
+        } else {
+          displayTable();
+        }
+      }
+    }
+
+    // Lancer le chargement dès que la page est prête
+    window.onload = fetchUsers;
