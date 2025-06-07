@@ -43,12 +43,16 @@ let users = [];
       table.classList.remove("d-none");
       table.classList.add("table");
 
-      const rows = data.map((user) => {
+      console.log(users);
+      
+
+      const rows = data.map(({name, phone, email, address: {street}}) => {
         return `
         <tr>
-          <td>${user.name}</td>
-          <td>${user.phone}</td>
-          <td>${user.email}</td>
+          <td>${name}</td>
+          <td>${phone}</td>
+          <td>${email}</td>
+          <td>${street}</td>
         </tr>`;
       });
 
@@ -57,10 +61,10 @@ let users = [];
 
     function searchUsers() {
       const search = document.getElementById("search").value.toLowerCase();
-      const filteredUsers = users.filter((user) => {
-        const name = user.name.toLowerCase();
-        const phone = user.phone.toLowerCase();
-        const email = user.email.toLowerCase();
+      const filteredUsers = users.filter(({name, phone, email}) => {
+        name.toLowerCase();
+        phone.toLowerCase();
+        email.toLowerCase();
         return name.includes(search) || phone.includes(search) || email.includes(search);
       });
 

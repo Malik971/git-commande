@@ -15,18 +15,8 @@
     <div class="container-lg">
       <h2 class="d-flex justify-content-between">
         <span>Liste des utilisateurs</span>
-        <span class="btn-group" role="group">
-        </span>
+        <span class="btn-group" role="group"> </span>
       </h2>
-      <div class="mb-3">
-        <input
-        type="text"
-        class="form-control"
-        id="search"
-        placeholder="Rechercher par nom, téléphone ou email"
-        onkeyup="searchUsers()"
-        />
-      </div>
       <button
         id="toggleViewBtn"
         onclick="toggleDisplayMode()"
@@ -34,6 +24,28 @@
       >
         Passer en tableau
       </button>
+      <form class="row g-2">
+        <div class="col-md-9">
+          <input
+            type="text"
+            class="form-control"
+            id="search"
+            placeholder="Rechercher par nom, téléphone ou email"
+            onkeyup="searchUsers()"
+          />
+        </div>
+        <div class="col-md-3">
+          <select
+            class="form-select col-md-4"
+            aria-label="Large select example"
+          >
+            <option selected>Trier par...</option>
+            <option value="1">Nom</option>
+            <option value="2">Téléphone</option>
+            <option value="3">Mail</option>
+          </select>
+        </div>
+      </form>
 
       <table class="table table-bordered" id="userTable">
         <thead>
@@ -41,6 +53,7 @@
             <th scope="col">Name</th>
             <th scope="col">Téléphone</th>
             <th scope="col">Email</th>
+            <th scope="col">Rue</th>
           </tr>
         </thead>
         <tbody id="userTableBody">
