@@ -73,3 +73,6 @@ permet de faire disparaitre les commits en trop
 
 ## git clone
 - Permet de récupérer un projet github en ligne
+
+## git commit --amend -m "Mon nouveau message de commit"
+- Au cas où l'on sais tromper dans un nom d'un commit qui n'a pas été encore push en ligne sur github 
